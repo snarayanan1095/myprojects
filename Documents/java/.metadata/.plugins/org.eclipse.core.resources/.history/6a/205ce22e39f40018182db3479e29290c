@@ -1,0 +1,262 @@
+package bGApp;
+
+/**
+ * 
+ */
+
+import java.io.IOException;
+import java.lang.Math;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import csye6200.sim.Plant;
+
+/**
+ * @author shwethanarayanan
+ * NUID: (001422526)
+ *
+ */
+public class MyPlant{
+	String TypeName;
+	int SpecimenId;
+	int PlantAge;
+	double PlantLength=0.0;
+	double Plantx;
+	double Planty;
+	
+	
+	
+	
+		public MyPlant(){
+			this.TypeName=TypeName;
+			this.SpecimenId=SpecimenId;
+			
+		}
+		
+	
+	public MyPlant(String TypeName, int SpecimenId, int PlantAge, double PlantLength){
+		this.SpecimenId=SpecimenId;
+		this.PlantLength=PlantLength;
+		this.PlantAge=PlantAge;
+	}
+		
+	public MyPlant(String TypeName, int SpecimenId,int PlantAge, double PlantLength,double Plantx, double Planty, int radian) {
+		this.SpecimenId=SpecimenId;
+		this.TypeName=TypeName;
+		this.PlantLength=PlantLength;
+		this.PlantAge=PlantAge;
+//		this.x=x;
+//		this.y=y;
+//		this.radian=radian;
+	}
+		
+	
+	public void growPlant(String TypeName,int SpecimenId,double PlantLength, int PlantAge, double Plantx, double Planty){
+		PlantAge++;
+		if(PlantAge>12){
+			PlantAge=1;
+		}
+		//MyStem stem=new MyStem();
+		
+		if(PlantLength<15) {
+		if(PlantAge>=6 && PlantAge <=8){
+			System.out.println("It's the summer season");
+			PlantLength=PlantLength+1;
+		}
+		if(PlantAge>=9 && PlantAge<=11) {
+			System.out.println("It’s the fall season and there are no leaves and flowers in the plant");
+			PlantLength=PlantLength+1;
+		}
+		if(PlantAge==12 || PlantAge==1)  {
+			System.out.println("The winter is here and the plant doesn't grow");
+			PlantLength=this.PlantLength;
+		}
+		if(PlantAge>=2 && PlantAge<=5) {
+			System.out.println("It's the spring season and the flowers are blooming");
+			PlantLength=PlantLength+1;
+		}
+		
+		Plantx=0;
+		Planty=PlantLength;
+		}
+		this.Plantx=Plantx;
+		this.Planty=Planty;
+		this.PlantAge=PlantAge;
+		this.PlantLength=PlantLength;
+		this.SpecimenId=SpecimenId;
+		this.TypeName=TypeName;
+
+	}
+	
+	public int getId() {
+		return SpecimenId;
+	}
+	public MyPlant plant_gen(MyPlant pl) {
+		
+		
+		MyStem stem=new MyStem();
+		
+		MyFlowerPlant flower=new MyFlowerPlant(pl.TypeName, pl.SpecimenId, pl.PlantAge, pl.PlantLength, pl.Plantx, pl.Planty, stem.radian, 0,"red");
+		growPlant(TypeName,SpecimenId,PlantLength, PlantAge,pl.Plantx, pl.Planty); 
+		System.out.println("The "+TypeName+" plant age is "+PlantAge+" months");
+		System.out.println("The length of the plant is "+PlantLength);
+		System.out.println("The Co-ordinates of the base stem is: x= "+Plantx+", y= "+Planty);
+		flower.GrowFlower(TypeName,PlantLength,PlantAge, flower.petals, pl.Plantx, pl.Planty, stem.radian,flower.color);
+		System.out.println(" ");
+		growPlant(TypeName,SpecimenId,PlantLength, PlantAge, pl.Plantx, pl.Planty);
+		System.out.println("The "+TypeName+" plant age is "+PlantAge+" months");
+		System.out.println("The length of the plant is "+PlantLength);
+		System.out.println("The Co-ordinates of the base stem is: x= "+Plantx+", y= "+Planty);
+		flower.GrowFlower(TypeName,PlantLength,PlantAge, flower.petals, pl.Plantx, pl.Planty, stem.radian,flower.color);
+		System.out.println(" ");
+		growPlant(TypeName,SpecimenId,PlantLength, PlantAge, pl.Plantx, pl.Planty);
+		System.out.println("The "+TypeName+" plant age is "+PlantAge+" months");
+		System.out.println("The length of the plant is "+PlantLength);
+		System.out.println("The Co-ordinates of the base stem is: x= "+Plantx+", y= "+Planty);
+		flower.GrowFlower(TypeName,PlantLength,PlantAge, flower.petals, pl.Plantx, pl.Planty, stem.radian,flower.color);
+		System.out.println(" ");
+		growPlant(TypeName,SpecimenId,PlantLength, PlantAge, pl.Plantx, pl.Planty);
+		System.out.println("The "+TypeName+" plant age is "+PlantAge+" months");
+		System.out.println("The length of the plant is "+PlantLength);
+		System.out.println("The Co-ordinates of the base stem is: x= "+Plantx+", y= "+Planty);
+		flower.GrowFlower(TypeName,PlantLength,PlantAge, flower.petals, pl.Plantx, pl.Planty, stem.radian,flower.color);
+		System.out.println(" ");
+		System.out.println("Plant: "+flower.formattedToString());
+		pl=new MyPlant(pl.TypeName,pl.SpecimenId,pl.PlantAge,PlantLength,pl.Plantx, pl.Planty,stem.radian);
+		return pl;
+		
+		
+	}
+	
+	public void stem_growth() {
+		
+		MyStem stem=new MyStem();
+		MyStem s=new MyStem();
+		MyFlowerPlant flower=new MyFlowerPlant(TypeName, SpecimenId, PlantAge, PlantLength, stem.x, stem.y, stem.radian, 0,"red");
+		
+		
+		
+		System.out.println("The Stems of the "+TypeName+"plant are: ");
+		
+		stem.x=Plantx;
+		stem.y=Planty;
+		
+				for(int i=0;i<5;i++) {
+					
+					if(PlantAge>=12){
+						PlantAge=1;
+					}
+					double a=stem.x;
+					double b=stem.y;
+					
+					
+					System.out.println("The branch of the plant is at "+stem.x+" to "+stem.y+" and is of length "+stem.length+" and angle of "+stem.radian+" on the right side and age of the plant is "+PlantAge);
+					stem.GrowStemx1(stem.x, stem.y, 3.0, 30);
+					stem.StemList.add(s);
+					stem.StemMap.put(s.getStemId(), s);
+					if(PlantAge>=2 && PlantAge<=5) {
+					flower.GrowFlower(TypeName,PlantLength,PlantAge, flower.petals, stem.x, stem.y, stem.radian,flower.color);
+					}
+					System.out.println("The branch of the plant is at "+stem.x+" to "+stem.y+" and is of length "+stem.length+" and angle of "+stem.radian+" on the right side and age of the plant is "+PlantAge);
+					
+					stem.GrowStemx2(a,b, 3.0, 30);
+					stem.StemList.add(s);
+					stem.StemMap.put(s.getStemId(), s);
+					if(PlantAge>=2 && PlantAge<=5) {
+						flower.GrowFlower(TypeName,PlantLength,PlantAge, flower.petals, stem.x, stem.y, stem.radian,flower.color);
+						}
+					PlantAge++;
+					
+				}
+				
+				//totalhw(stem.x,stem.y,a,b);
+		
+			
+//				GrowStemx1(x, y, 3.2, 30);
+//				s1=new MyStem("001",x, y, 3.2, 30);
+//				StemList.add(s1);
+//				StemMap.put(s1.getStemId(),s1);
+//				System.out.println("The branch of the plant is at "+x+" to "+y+" and is of length "+length+" and angle of "+radian+" on the right side and age of the plant is "+PlantAge);
+//				
+//				double m=x;
+//				double n=y;
+//			
+//			
+//				GrowStemx2(a,b, 3.2, 30);
+//				s2=new MyStem("002",x, y, 3.2, 30);
+//				StemList.add(s2);
+//				StemMap.put(s2.getStemId(),s2);
+//				System.out.println("The branch of the plant is at "+x+" to "+y+" and is of length "+length+" and angle of "+radian+" on the left side and age of the plant is "+PlantAge);
+//				PlantAge++;
+//				
+//				double k=x; double z=y;
+//				
+//				System.out.println("The branch of the plant is at "+x+" to "+y+" and is of length "+length+" and angle of "+radian+" on the right side and age of the plant is "+PlantAge);
+//				
+//				GrowStemx1(m, n, 1.2, 45);
+//				s3=new MyStem("003",x, y, 1.2, 45);
+//				StemList.add(s3);
+//				StemMap.put(s3.getStemId(),s3);
+//				System.out.println("The branch of the plant is at "+x+" to "+y+" and is of length "+length+" and angle of "+radian+" on the right side and age of the plant is "+PlantAge);
+//				
+//				a=x; b=y;
+//				
+//				GrowStemx2(m,n, 2.2, 60);
+//				s4=new MyStem("004",x, y, 2.2, 60);
+//				StemList.add(s4);
+//				StemMap.put(s4.getStemId(),s4);
+//				System.out.println("The branch of the plant is at "+x+" to "+y+" and is of length "+length+" and angle of "+radian+" on the right side and age of the plant is "+PlantAge);
+//				PlantAge++;
+//				
+//				m=x;		n=y;
+//			
+//				GrowStemx1(k, z,1.4, 20);
+//				s5=new MyStem("005",x, y, 1.4, 20);
+//				StemList.add(s5);
+//				StemMap.put(s5.getStemId(),s5);
+//				System.out.println("The branch of the plant is at "+x+" to "+y+" and is of length "+length+" and angle of "+radian+" on the left side and age of the plant is "+PlantAge);
+//				
+//				double o=x; double p=y;
+//				
+//				GrowStemx2(y,z, 5.2, 40);
+//				s6=new MyStem("006",x, y, 5.2, 40);
+//				StemList.add(s6);
+//				StemMap.put(s6.getStemId(),s6);
+//				System.out.println("The branch of the plant is at "+x+" to "+y+" and is of length "+length+" and angle of "+radian+" on the left side and age of the plant is "+PlantAge);
+//				PlantAge++;
+//				
+//				double q=x;	double	r=y;
+//				
+//				GrowStemx1(a, b, 2.4, 35);
+//				s7=new MyStem("007",x, y, 2.4, 35);
+//				StemList.add(s7);
+//				StemMap.put(s7.getStemId(),s7);
+//				System.out.println("The branch of the plant is at "+x+" to "+y+" and is of length "+length+" and angle of "+radian+" on the right side and age of the plant is "+PlantAge);
+//				
+//			
+//				
+//				GrowStemx2(m,n, 2.4, 45);
+//				s8=new MyStem("008",x,y, 2.4, 45);
+//				StemList.add(s8);
+//				StemMap.put(s8.getStemId(),s8);
+//				System.out.println("The branch of the plant is at "+x+" to "+y+" and is of length "+length+" and angle of "+radian+" on the right side and age of the plant is "+PlantAge);
+//				
+//				GrowStemx1(o, p, 2.4, 35);
+//				s9=new MyStem("009",x, y, 2.4, 35);
+//				StemList.add(s9);
+//				StemMap.put(s9.getStemId(),s9);
+//				System.out.println("The branch of the plant is at "+x+" to "+y+" and is of length "+length+" and angle of "+radian+" on the left side and age of the plant is "+PlantAge);
+//				
+//				GrowStemx1(q, r, 2.4, 35);
+//				s10=new MyStem("010",x, y, 2.4, 35);
+//				StemList.add(s10);
+//				StemMap.put(s10.getStemId(),s10);
+//				System.out.println("The branch of the plant is at "+x+" to "+y+" and is of length "+length+" and angle of "+radian+" on the left side and age of the plant is "+PlantAge);
+
+				
+				
+				
+	}
+}
+	
+

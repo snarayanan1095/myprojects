@@ -1,0 +1,133 @@
+package algo_hw5;
+
+public class Binary_tree2 {
+	
+	class Node{
+		int data;
+		Node left;
+		Node right;	
+		public Node(int data){
+			this.data = data;
+			left = null;
+			right = null;
+		}
+	}
+	
+	Node root;
+	Binary_tree2() {
+		this.root=null;
+	}
+	
+	public boolean search(int id) {
+		Node current = root;
+		while(current!=null){
+			if(current.data==id){
+				return true;
+			}else if(current.data>id){
+				current = current.left;
+			}else{
+				current = current.right;
+			}
+		}
+		return false;
+	}
+	
+	public void insert(int id) {
+		Node newNode = new Node(id);
+		if(root==null){
+			root = newNode;
+			return;
+		}
+		Node current = root;
+		Node parent = null;
+		while(true){
+			parent = current;
+			if(id<current.data){				
+				current = current.left;
+				if(current==null){
+					parent.left = newNode;
+					return;
+				}
+			}else{
+				current = current.right;
+				if(current==null){
+					parent.right = newNode;
+					return;
+				}
+			}
+		}
+	}
+	
+	public void deleteMin() {
+		root = deleteMin(root);
+	}
+	
+	private Node deleteMin(Node x) {
+		if (x == null) return null;
+		
+		if (x.left == null) return x.right; 
+	
+		x.left = deleteMin(x.left);
+		x.data = size(x.left) + size(x.right) + 1;	
+		return x;
+	}
+	public int size() {
+		return size(root);
+	}
+	
+	private int size(Node x) {
+		if (x == null) return 0;
+		return x.data;
+	}
+
+		
+	public int rank(int key) {
+		return rank(root, key);
+	}
+	
+	private int rank(Node x, int key) {
+		if (x == null) return 0;
+		
+		int cmp = key.compareTo(x.key);
+		if (cmp < 0)
+			return rank(x.left, key);
+		else if (cmp > 0)
+			return rank(x.right, key) + size(x.left) + 1;
+
+		return size(x.left);
+	}
+	
+
+
+
+	
+
+
+	public static void main(String[] args) {
+		Binary_tree2 bt= new Binary_tree2();
+		
+		bt.insert(7);
+		bt.insert(9);
+		bt.insert(23);
+		bt.insert(45);
+		bt.insert(1);
+		bt.insert(5);
+		bt.insert(14);
+		bt.insert(55);
+		bt.insert(24);
+		bt.insert(13);
+		bt.insert(11);
+		bt.insert(8);
+		bt.insert(19);
+		bt.insert(4);
+		bt.insert(31);
+		bt.insert(35);
+		bt.insert(56);
+		bt.deleteMin();
+		
+		System.out.println(bt.search(7));
+		System.out.println(bt.search(1));
+		
+	}
+
+}

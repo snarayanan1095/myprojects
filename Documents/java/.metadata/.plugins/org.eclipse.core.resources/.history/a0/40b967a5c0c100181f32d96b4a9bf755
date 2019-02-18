@@ -1,0 +1,42 @@
+/**
+ * 
+ */
+package java_6200;
+
+/**
+ * @author shwethanarayanan
+ * NUID: (001422526)
+ *
+ */
+public class PlantTest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Plant p1=new Plant();
+		p1.PlantAge=0;
+		p1.PlantLength=0.2;
+		p1.growPlant(p1.PlantLength,p1.PlantAge);
+		System.out.println("The plant age is "+p1.PlantAge);
+		System.out.println("The length of the plant is "+p1.PlantLength);
+		
+		Plant p2=new Plant();
+		System.out.println("The plant age is "+p2.PlantAge);
+		System.out.println("The length of the plant is "+p2.PlantLength);
+		
+		Plant p3=new Plant();
+		System.out.println("The plant age is "+p3.PlantAge);
+		System.out.println("The length of the plant is "+p3.PlantLength);
+		
+		Plant p4=new Plant();
+		System.out.println("The plant age is "+p4.PlantAge);
+		System.out.println("The length of the plant is "+p4.PlantLength);
+		
+		Plant p5=new Plant();
+		System.out.println("The plant age is "+p5.PlantAge);
+		System.out.println("The length of the plant is "+p5.PlantLength);
+		
+	}
+
+}

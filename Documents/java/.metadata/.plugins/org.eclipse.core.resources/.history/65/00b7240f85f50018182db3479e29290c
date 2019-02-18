@@ -1,0 +1,218 @@
+package bGApp;
+
+import java.awt.Graphics;
+
+/**
+ * 
+ */
+
+import java.io.IOException;
+import java.lang.Math;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import csye6200.sim.Plant;
+
+/**
+ * @author shwethanarayanan
+ * NUID: (001422526)
+ *
+ */
+public class MyPlant{
+	String TypeName;
+	int SpecimenId;
+	int PlantAge;
+	int PlantLength=200;
+	int Plantx=250;
+	int Planty=700;
+	int endx=250;
+	int endy=0;
+	
+	
+	
+	
+		public MyPlant(){
+			this.TypeName=TypeName;
+			this.SpecimenId=SpecimenId;
+			
+		}
+		
+	
+	public MyPlant(String TypeName, int SpecimenId, int PlantAge, int PlantLength){
+		this.SpecimenId=SpecimenId;
+		this.PlantLength=PlantLength;
+		this.PlantAge=PlantAge;
+	}
+		
+	public MyPlant(String TypeName, int SpecimenId,int PlantAge, int PlantLength,int Plantx, int Planty, int radian) {
+		this.SpecimenId=SpecimenId;
+		this.TypeName=TypeName;
+		this.PlantLength=PlantLength;
+		this.PlantAge=PlantAge;
+//		this.x=x;
+//		this.y=y;
+//		this.radian=radian;
+	}
+		
+//	public void run() {
+//		boolean done=false;
+//		boolean paused=false;
+//		int ctr=0;
+//		
+//		while(!done) {
+//			if(ctr==100)
+//				paused=true; //goes to sleep after 100
+//			else {
+//				growPlant(TypeName,SpecimenId,PlantLength, PlantAge,Plantx, Planty); //Plant grows 1 pixel more for 1 sec
+//			try {
+//				Thread.sleep(1000L);
+//			} catch (InterruptedException e1) {
+//				e1.printStackTrace();
+//			}
+//				ctr++;
+//			}
+//		}
+//	}
+		
+	public void growPlant(String TypeName,int SpecimenId,int PlantLength, int PlantAge, int Plantx, int Planty,int endx, int endy){
+		PlantAge++;
+		if(PlantAge>12){
+			PlantAge=1;
+		}
+		
+//		Plantx=300;
+//		Planty=700;
+//		endx=300;
+//	
+		
+		
+		if(PlantAge>=6 && PlantAge <=8){
+			//System.out.println("It's the summer season");
+			endy=Planty-50;
+			Planty=endy;
+			}
+		if(PlantAge>=9 && PlantAge<=11) {
+			//System.out.println("It’s the fall season and there are no leaves and flowers in the plant");
+			endy=Planty-50;
+			Planty=endy;
+		}
+		if(PlantAge==12 || PlantAge==1)  {
+			//System.out.println("The winter is here and the plant doesn't grow");
+			this.endy=endy;
+		}
+		if(PlantAge>=2 && PlantAge<=5) {
+			//System.out.println("It's the spring season and the flowers are blooming");
+			endy=Planty-50;
+			Planty=endy;
+		}
+		
+		Plantx=endx;
+//		
+//		this.endx=endx;
+//		this.endy=endy;
+//		this.Plantx=Plantx;
+//		this.Planty=Planty;
+//		this.PlantAge=PlantAge;
+//		this.PlantLength=PlantLength;
+//		this.SpecimenId=SpecimenId;
+		
+
+	}
+	
+	
+//	 MyPlant plant_gen(MyPlant pl) {
+//		
+//		
+//		MyStem stem=new MyStem();
+//		
+//		MyFlowerPlant flower=new MyFlowerPlant(pl.TypeName, pl.SpecimenId, pl.PlantAge, pl.PlantLength, pl.Plantx, pl.Planty, stem.radian, 0,"red");
+//		growPlant(TypeName,SpecimenId,PlantLength, PlantAge,pl.Plantx, pl.Planty); 
+//		System.out.println("The "+TypeName+" plant age is "+PlantAge+" months");
+//		System.out.println("The length of the plant is "+PlantLength);
+//		System.out.println("The Co-ordinates of the base stem is: x= "+Plantx+", y= "+Planty);
+//		flower.GrowFlower(TypeName,PlantLength,PlantAge, flower.petals, pl.Plantx, pl.Planty, stem.radian,flower.color);
+//		System.out.println(" ");
+//		growPlant(TypeName,SpecimenId,PlantLength, PlantAge, pl.Plantx, pl.Planty);
+//		System.out.println("The "+TypeName+" plant age is "+PlantAge+" months");
+//		System.out.println("The length of the plant is "+PlantLength);
+//		System.out.println("The Co-ordinates of the base stem is: x= "+Plantx+", y= "+Planty);
+//		flower.GrowFlower(TypeName,PlantLength,PlantAge, flower.petals, pl.Plantx, pl.Planty, stem.radian,flower.color);
+//		System.out.println(" ");
+//		growPlant(TypeName,SpecimenId,PlantLength, PlantAge, pl.Plantx, pl.Planty);
+//		System.out.println("The "+TypeName+" plant age is "+PlantAge+" months");
+//		System.out.println("The length of the plant is "+PlantLength);
+//		System.out.println("The Co-ordinates of the base stem is: x= "+Plantx+", y= "+Planty);
+//		flower.GrowFlower(TypeName,PlantLength,PlantAge, flower.petals, pl.Plantx, pl.Planty, stem.radian,flower.color);
+//		System.out.println(" ");
+//		growPlant(TypeName,SpecimenId,PlantLength, PlantAge, pl.Plantx, pl.Planty);
+//		System.out.println("The "+TypeName+" plant age is "+PlantAge+" months");
+//		System.out.println("The length of the plant is "+PlantLength);
+//		System.out.println("The Co-ordinates of the base stem is: x= "+Plantx+", y= "+Planty);
+//		flower.GrowFlower(TypeName,PlantLength,PlantAge, flower.petals, pl.Plantx, pl.Planty, stem.radian,flower.color);
+//		System.out.println(" ");
+//		System.out.println("Plant: "+flower.formattedToString());
+//		pl=new MyPlant(pl.TypeName,pl.SpecimenId,pl.PlantAge,PlantLength,pl.Plantx, pl.Planty,stem.radian);
+//		return pl;
+//		
+//		
+//	}
+	
+	public void stem_growth(int PlantAge, int length, int startx, int starty, int endx, int endy ) {
+		
+		MyStem stem=new MyStem();
+		MyStem s=new MyStem();
+		MyFlowerPlant flower=new MyFlowerPlant(TypeName, SpecimenId, PlantAge, PlantLength, stem.xend, stem.yend, stem.radian, 0,"red");
+		//Graphics g = null;
+//		
+//		
+//		System.out.println("The Stems of the "+TypeName+"plant are: ");
+//		
+//		stem.xstart=endx;
+//		stem.ystart=endy;
+		stem.xstart=startx;
+		stem.ystart=starty;
+		stem.xend=endx;
+		stem.yend=endy;
+		
+	
+//				for(int i=0;i<5;i++) {
+					
+					if(PlantAge>=12){
+						PlantAge=1;
+					}
+					int a=stem.xstart;
+					int b=stem.ystart;
+					
+					
+					
+					//System.out.println("The branch of the plant is at "+stem.x+" to "+stem.y+" and is of length "+stem.length+" and angle of "+stem.radian+" on the right side and age of the plant is "+PlantAge);
+					stem.GrowStemx1(stem.xstart, stem.ystart,stem.xend,stem.yend, 50, 30);
+					stem.StemList.add(s);
+					stem.StemMap.put(s.getStemId(), s);
+					//g.drawLine(stem.xstart, stem.ystart, stem.xend, stem.yend);
+					if(PlantAge>=2 && PlantAge<=5) {
+					flower.GrowFlower(TypeName,PlantLength,PlantAge, flower.petals, stem.xend, stem.yend, stem.radian,flower.color);
+					}
+					//System.out.println("The branch of the plant is at "+stem.x+" to "+stem.y+" and is of length "+stem.length+" and angle of "+stem.radian+" on the right side and age of the plant is "+PlantAge);
+					
+					stem.GrowStemx2(a,b, stem.xend,stem.yend,50, 30);
+					stem.StemList.add(s);
+					stem.StemMap.put(s.getStemId(), s);
+					if(PlantAge>=2 && PlantAge<=5) {
+						flower.GrowFlower(TypeName,PlantLength,PlantAge, flower.petals, stem.xend, stem.yend, stem.radian,flower.color);
+						}
+					PlantAge++;
+					
+				}
+
+				
+				
+				
+				
+//	}
+	public int getId() {
+		return SpecimenId;
+	}
+}
+	
+

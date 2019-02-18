@@ -1,0 +1,10 @@
+package algo_hw4;
+
+public class Hashcode32Bit {
+	
+	public static void main(String args[]) {
+		String Str=new String("Hello Students");
+		System.out.println("Hashcode for Str :" + Str.hashCode() );
+	}
+
+}

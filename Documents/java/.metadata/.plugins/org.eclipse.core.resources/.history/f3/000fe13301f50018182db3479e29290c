@@ -1,0 +1,26 @@
+package bGApp;
+
+public class Test {
+
+	public Test() {
+		
+	}
+	
+	public void test() {
+		
+	
+	MyStem stem=new MyStem();
+	
+	stem.GrowStemx1(300, 600, stem.xend, stem.yend, 50, 30);
+	//stem.GrowStemx1(xstart, ystart, xend, yend, length, radian);
+	System.out.println("abc" +stem.xstart+ stem.xend+stem.ystart+stem.yend );
+	}
+	
+	
+	public static void main(String[] args) {
+		Test test=new Test();
+		test.test();
+
+	}
+
+}

@@ -1,0 +1,206 @@
+package bGApp;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.lang.Math;
+
+/**
+ * @author shwethanarayanan
+ * NUID: (001422526)
+ *
+ */
+public class MyStem {
+	String StemId="";
+	int xstart;
+	int ystart;
+	int xend;
+	int yend;
+	int length;
+	int radian;
+	double theta;
+
+	
+	MyStem(String StemId, int xstart, int ystart, int xend, int yend, int length, int radian){
+		this.xstart=xstart;
+		this.ystart=ystart;
+		this.xend=xend;
+		this.yend=yend;
+		this.length=length;
+		this.radian=radian;
+		}
+	
+	
+	
+	public void GrowStemx1( int xstart, int ystart,int xend, int yend,int length, int radian) {
+
+			 theta= Math.toRadians(radian);
+			 yend=ystart+(int) (length*Math.sin(theta));
+			 xend=xstart+(int) (length*Math.cos(theta));
+			 this.yend=yend;
+			 this.xend=xend;
+			 this.xstart=xstart;
+			 this.ystart=ystart;
+//			 this.radian=radian;
+//			 this.length=length;
+			 
+
+	 }
+	 public void GrowStemx2( int xstart, int ystart,int xend, int yend, int length,int radian) {
+					
+				 theta= (int) Math.toRadians(90+radian);
+				 yend=ystart+(int)(length*Math.sin(theta));
+				 xend=xstart+(int) (length*Math.cos(theta));
+				 this.yend=yend;
+				 this.xend=xend;
+				 this.radian=radian;
+				 this.length=length;
+
+			 }
+
+	
+	 public void stem_growth(int xstart,int ystart,int xend,int yend, int radian) {
+		 GrowStemx1(xstart,ystart,xend,yend, 50, radian);
+		 GrowStemx1(xstart,ystart,xend,yend, 50, -1*radian);
+		 xstart=xend;
+		 ystart=yend;
+		 stem_growth(xstart,ystart,xend,yend, radian);
+		 stem_growth(xstart,ystart,xend,yend,-1*radian);
+		 return;
+	 }
+	 
+	 
+	public String getStemId() {
+			return StemId;
+	}
+
+	public void setStemId(String StemId){
+			this.StemId=StemId;
+	}
+
+	public int getxend() {
+		return xend;
+	}
+	
+	public void setxend(int xend) {
+		this.xend=xend;
+	}
+	
+	public int getxstart() {
+		return xstart;
+	}
+	
+	public void setxstart(int xstart) {
+		 this.xstart=xstart;
+	}
+	
+	public int getyend() {
+		return yend;
+	}
+	
+	public void setyend(int yend) {
+		this.yend=yend;
+	}
+	
+	public int getystart() {
+		return ystart;
+	}
+	
+	public void setystart( int ystart) {
+		this.ystart=ystart;
+	}
+	
+	public double getlength() {
+		return length;
+	}
+	
+	public void setlength(int length) {
+		this.length=length;
+	}
+	
+	public int getradian() {
+		return radian;
+	}
+
+	public void setradian(int radian) {
+		this.radian=radian;
+	}
+	
+//	public String toString() {
+//			return String.format("%1$12s %2$5.5f %3$5.5f %4$5.5f %5$10d", getStemId(), gety(), getx(), getlength(), getradian());
+//	}
+
+	
+	public MyStem() {
+
+			StemList = new ArrayList<MyStem>();
+			StemMap=new HashMap<String, MyStem>();
+	}
+			public ArrayList<MyStem> StemList;
+			public HashMap<String,MyStem>StemMap=new HashMap<String, MyStem>();
+
+			
+//			public void stem_growth() {
+//				
+//				MyPlant pl=new MyPlant();
+//				MyStem s=new MyStem();
+//				
+//				
+//				
+//				System.out.println("The Stems of the "+pl.TypeName+"plant are: ");
+//				
+//				x=pl.Plantx;
+//				y=pl.Planty;
+//				
+//						for(int i=0;i<5;i++) {
+//							double a=x;
+//							double b=y;
+//							
+//							
+//							System.out.println("The branch of the plant is at "+x+" to "+y+" and is of length "+length+" and angle of "+radian+" on the right side and age of the plant is "+pl.PlantAge);
+//							GrowStemx1(x, y, 3.0, 30);
+//							StemList.add(s);
+//							StemMap.put(s.getStemId(), s);
+//							
+//							System.out.println("The branch of the plant is at "+x+" to "+y+" and is of length "+length+" and angle of "+radian+" on the right side and age of the plant is "+pl.PlantAge);
+//							
+//							GrowStemx2(a,b, 3.0, 30);
+//							StemList.add(s);
+//							StemMap.put(s.getStemId(), s);
+//							pl.PlantAge++;
+//						}
+//							
+//						}
+//						
+//	public void ChildCount(){
+//	int chCount=0;
+//	if (StemList.isEmpty()){
+//	System.out.println("The plant has no children- The list is empty");
+//	}
+//	else{
+//	for(MyStem st:StemList) {
+//		chCount++;
+//		}
+//	System.out.println("The number of children of the plant are: "+chCount);
+//	}
+//	}
+//	
+	public void StemLoop(){
+		
+		
+		for(MyStem em:StemList) {
+			
+			System.out.println(em);
+		}
+	}
+		
+	public void Stemremove() {
+		for(int i=0;i<StemList.size();i++) {
+			StemList.remove(i);
+		}
+	}
+	
+	
+
+	
+	
+	
+}

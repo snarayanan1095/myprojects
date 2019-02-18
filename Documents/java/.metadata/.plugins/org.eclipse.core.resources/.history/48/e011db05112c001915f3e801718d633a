@@ -1,0 +1,264 @@
+package algo_hw4;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
+import javax.imageio.ImageIO;
+
+import com.sun.prism.Image;
+
+
+public class PixelSort {
+	
+	Object[] intarr;
+	Object[] outarr;
+	double intensity;
+	int i,j;
+	int k=0;
+	Stack<Double> intstack = new Stack<Double>();
+	
+	
+	  private void marchThroughImage() {
+		File f=new File("/Users/shwethanarayanan/Documents/algo/homework4/Boston.jpeg");
+	    BufferedImage image = null;
+		try {
+			image = ImageIO.read(f);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	    int w = image.getWidth();
+	    int h = image.getHeight();
+
+	    for (i = 0; i < h; i++) {
+	      for (j = 0; j < w; j++) {
+	    	
+	       
+	        int pixel = image.getRGB(j, i);
+	  	    int red = (pixel >> 16) & 0xff;
+	
+	  	    int green = (pixel >> 8) & 0xff;
+	  	    int blue = (pixel) & 0xff;
+
+	  	    intensity=(0.2989*red) + (0.5870*green) + (0.1140*blue);
+
+	  	    intstack.push(intensity);
+	  	    }
+	      }
+	  }
+	  
+	  public void insertionSort() {							// Time complexity= O(n^2)
+		 outarr =  arraystack();
+		
+		  int n = outarr.length; 
+		  
+	        for (int i=1; i<n; ++i) 
+	        { 
+	            double key = (double) outarr[i]; 
+	            int j = i-1; 
+
+	            while (j>=0 && ((double) outarr[j]) <= key) 
+	            { 
+	                outarr[j+1] = outarr[j]; 
+	                j = j-1; 
+	            } 
+	            outarr[j+1] = key; 
+	        } 
+		 }
+	  
+	  public Object[] arraystack(){
+		  intarr= intstack.toArray();
+		  return intarr;
+		 }
+	  
+	  
+	  
+	  public void heapSort() {									//time complexity= O(nlogn)
+		  outarr=arraystack();
+		  int n = outarr.length; 
+		  
+	       
+	        for (int i = n / 2 - 1; i >= 0; i--) 
+	            heapify(outarr, n, i); 
+	  
+	
+	        for (int i=n-1; i>=0; i--) 
+	        { 
+	          
+	            double temp = (double) outarr[0]; 
+	            outarr[0]=outarr[i]; 
+	            outarr[i] = temp; 
+	  
+	          
+	            heapify(outarr, i, 0); 
+	        } 
+		  
+	  }
+	  
+	 public void heapify(Object arr[], int n, int i) 
+	    { 
+	        int smallest = i;  
+	        int l = 2*i + 1; 
+	        int r = 2*i + 2; 
+	  
+	   
+	        if (l < n && (double) arr[l] < (double) arr[smallest]) 
+	        	smallest = l; 
+	  
+ 
+	        if (r < n && (double) arr[r]  < (double) arr[smallest]) 
+	        	smallest = r; 
+	
+	        if (smallest != i) 
+	        { 
+	            double swap = (double) arr[i]; 
+	            arr[i] = arr[smallest]; 
+	            arr[smallest] = swap; 
+	  
+	            heapify(arr, n, smallest); 
+	        } 
+	    } 
+	 
+	 int partition(Object arr[], int low, int high) 
+	    { 
+	        double pivot = (double) arr[high];  
+	        int i = (low-1);
+	        for (int j=low; j<high; j++) 
+	        {
+
+	            if ((double) arr[j] <= pivot) 
+	            { 
+	                i++; 
+	  
+	                double temp = (double) arr[i]; 
+	                arr[i] = arr[j]; 
+	                arr[j] = temp; 
+	            } 
+	        } 
+	  
+	  
+	        double temp = (double) arr[i+1]; 
+	        arr[i+1] = arr[high]; 
+	        arr[high] = temp; 
+	  
+	        return i+1; 
+	    } 
+	 
+	 void quickSort1(Object arr[], int low, int high) 			
+	    { 
+		  
+	        if (low < high) 
+	        { 
+	          
+	            int pi = partition(arr, low, high); 
+	  
+	            quickSort1(arr, low, pi-1); 
+	            quickSort1(arr, pi+1, high); 
+	        } 
+	    }
+	 
+	 void quickSort() {					//Time complexity= O(n^2) in this case		
+		 outarr=arraystack();
+		 int n=outarr.length;
+		 quickSort1(outarr, 0,n-1);
+	 }
+	 
+	 void merge(Object arr[], int l, int m, int r) 
+	    { 
+	        // Find sizes of two subarrays to be merged 
+	        int n1 = m - l + 1; 
+	        int n2 = r - m; 
+	  
+	        /* Create temp arrays */
+	        double L[] = new double [n1]; 
+	        double R[] = new double [n2]; 
+	  
+	        /*Copy data to temp arrays*/
+	        for (int i=0; i<n1; ++i) 
+	            L[i] = (double) arr[l + i]; 
+	        for (int j=0; j<n2; ++j) 
+	            R[j] = (double) arr[m + 1+ j]; 
+	  
+	  
+	        /* Merge the temp arrays */
+	  
+	        // Initial indexes of first and second subarrays 
+	        int i = 0, j = 0; 
+	  
+	        // Initial index of merged subarry array 
+	        int k = l; 
+	        while (i < n1 && j < n2) 
+	        { 
+	            if (L[i] <= R[j]) 
+	            { 
+	                arr[k] = L[i]; 
+	                i++; 
+	            } 
+	            else
+	            { 
+	                arr[k] = R[j]; 
+	                j++; 
+	            } 
+	            k++; 
+	        } 
+	  
+	        /* Copy remaining elements of L[] if any */
+	        while (i < n1) 
+	        { 
+	            arr[k] = L[i]; 
+	            i++; 
+	            k++; 
+	        } 
+	  
+	        /* Copy remaining elements of R[] if any */
+	        while (j < n2) 
+	        { 
+	            arr[k] = R[j]; 
+	            j++; 
+	            k++; 
+	        } 
+	    } 
+	 
+	 void mergesort1(Object arr[], int l, int r) 
+	    { 
+	        if (l < r) 
+	        { 
+	            // Find the middle point 
+	            int m = (l+r)/2; 
+	  
+	            // Sort first and second halves 
+	            mergesort1(arr, l, m); 
+	            mergesort1(arr , m+1, r); 
+	  
+	            // Merge the sorted halves 
+	            merge(arr, l, m, r); 
+	        } 
+	    } 
+	 
+	 void mergeSort() {
+		 outarr=arraystack();
+		 int n=outarr.length;
+		 mergesort1(outarr, 0, n-1 );
+	 }
+	 
+	 
+	 
+	 public void printArray() {
+		  int n =outarr.length;
+		  System.out.println("The sorted elements are:");
+		  for(int m=0;m<n;m++) {
+			  System.out.println(outarr[m]+" ");
+		  }
+	  }
+
+	  	public static void main(String args[]) {
+			PixelSort ps=new PixelSort();
+			ps.marchThroughImage();
+			ps.arraystack();
+			//ps.insertionSort();
+			//ps.heapSort();
+			//ps.quickSort();
+			ps.mergeSort();
+			ps.printArray();
+			}
+		}
+

@@ -1,0 +1,60 @@
+package bGApp;
+
+
+
+/**
+ * @author shwethanarayanan
+ * NUID: (001422526)
+ *
+ */
+
+public class MyFlowerPlant extends MyPlant{
+	int petals;
+	String color;
+	
+	public MyFlowerPlant(String TypeName, int SpecimenId,int PlantAge, double PlantLength,double x, double y, int radian, int petals, String color){
+		super(TypeName,SpecimenId,PlantAge,PlantLength,  x,  y, radian );
+		this.SpecimenId=SpecimenId;
+		
+	}
+	
+	
+	
+	
+	public void GrowFlower(String TypeName,double PlantLength, int PlantAge, int petals, double x, double y, int radian, String color){
+		
+		if(PlantAge==2){
+			petals++;
+			color="white";
+			System.out.println("The plant is "+ PlantAge +" months old, there is a "+color+" colored flower in "+x+","+ y+" co-ordinates with "+petals+" petals");
+		}
+		if(PlantAge==3){
+			petals++;
+			color="light pink";
+			System.out.println("The plant is "+ PlantAge +" months old, there is a "+color+" colored flower in "+x+","+ y+" co-ordinates with "+petals+" petals");
+		}
+		if(PlantAge==4){
+			petals++;
+			color="pink";
+			System.out.println("The plant is "+ PlantAge +" months old, there is a "+color+" colored flower in "+x+","+ y+" co-ordinates with "+petals+" petals");
+		}
+		if(PlantAge==5){
+			petals++;
+			color="red";
+			System.out.println("The plant is "+ PlantAge +" months old, there is a "+color+" colored flower in "+x+","+ y+" co-ordinates with "+petals+" petals");
+		}
+		
+		
+		
+		this.PlantAge=PlantAge;
+		this.petals=petals;
+		this.color=color;
+		this.TypeName=TypeName;
+		
+	}
+	
+	public String formattedToString(){
+		String MyPlant=String.format("The plant is a %1$10s, with Specimen ID %2$01d, aged %3$01d months. It has %4$01d petals with %5$10s color",TypeName, SpecimenId, PlantAge,petals, color);
+		return MyPlant;
+		}
+}

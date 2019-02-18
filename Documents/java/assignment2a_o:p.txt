@@ -1,0 +1,15 @@
+The plant age is 1 weeks
+The length of the plant is 0.2
+The plant age is 2 weeks
+The length of the plant is 0.4
+The plant age is 3 weeks
+The length of the plant is 0.6000000000000001
+The plant age is 4 weeks
+The length of the plant is 0.8
+The plant age is 5 weeks
+The length of the plant is 1.0
+Plant Details: The plant is a Rose Plant with Specimen ID 0 of age 1 weeks and the length of the plant is  0.20 meters
+Plant Details: The plant is a Rose Plant with Specimen ID 0 of age 2 weeks and the length of the plant is  0.40 meters
+Plant Details: The plant is a Rose Plant with Specimen ID 0 of age 3 weeks and the length of the plant is  0.60 meters
+Plant Details: The plant is a Rose Plant with Specimen ID 0 of age 4 weeks and the length of the plant is  0.80 meters
+Plant Details: The plant is a Rose Plant with Specimen ID 0 of age 5 weeks and the length of the plant is  1.00 meters

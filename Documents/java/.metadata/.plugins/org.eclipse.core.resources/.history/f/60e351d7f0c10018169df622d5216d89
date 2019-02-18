@@ -1,0 +1,60 @@
+/**
+ * 
+ */
+package java_6200;
+
+/**
+ * @author shwethanarayanan
+ * NUID: (001422526)
+ *
+ */
+public class PlantTest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Plant p1=new Plant();
+		p1.growPlant(0.0,0);
+		System.out.println("The plant age is "+p1.PlantAge+" weeks");
+		System.out.println("The length of the plant is "+p1.PlantLength);
+		
+		Plant p2=new Plant();
+		p2.growPlant(p1.PlantLength,p1.PlantAge);
+		System.out.println("The plant age is "+p2.PlantAge+" weeks");
+		System.out.println("The length of the plant is "+p2.PlantLength);
+		
+		Plant p3=new Plant();
+		p3.growPlant(p2.PlantLength,p2.PlantAge);
+		System.out.println("The plant age is "+p3.PlantAge +" weeks");
+		System.out.println("The length of the plant is "+p3.PlantLength);
+		
+		Plant p4=new Plant();
+		p4.growPlant(p3.PlantLength,p3.PlantAge);
+		System.out.println("The plant age is "+p4.PlantAge+" weeks");
+		System.out.println("The length of the plant is "+p4.PlantLength);
+		
+		Plant p5=new Plant();
+		p5.growPlant(p4.PlantLength,p4.PlantAge);
+		System.out.println("The plant age is "+p5.PlantAge+" weeks");
+		System.out.println("The length of the plant is "+p5.PlantLength);
+		
+		Plant a1=new Plant(p1.TypeName,p1.SpecimenId,p1.PlantAge,p1.PlantLength);
+		System.out.println("Plant Details: "+ a1.formattedToString());
+		
+		Plant a2=new Plant(p2.TypeName,p2.SpecimenId,p2.PlantAge,p2.PlantLength);
+		System.out.println("Plant Details: "+ a2.formattedToString());
+		
+		Plant a3=new Plant(p3.TypeName,p3.SpecimenId,p3.PlantAge,p3.PlantLength);
+		System.out.println("Plant Details: "+ a3.formattedToString());
+		
+		Plant a4=new Plant(p4.TypeName,p4.SpecimenId,p4.PlantAge,p4.PlantLength);
+		System.out.println("Plant Details: "+ a4.formattedToString());
+		
+		Plant a5=new Plant(p5.TypeName,p5.SpecimenId,p5.PlantAge,p5.PlantLength);
+		System.out.println("Plant Details: "+ a5.formattedToString());
+		
+		
+	}
+
+}

@@ -1,0 +1,69 @@
+package java_6200;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+public class DogTest {
+	
+	private Dog simpleDog;
+	private Dog simpleDog2;
+	private Collie simpleCollie;
+	
+	private ArrayList<Dog> dogList; //an arraylist class
+	private HashMap<String, Dog> dogMap = new HashMap<String, Dog>(); // a hashmap class
+	
+	public DogTest() {
+		
+		double airTemp=Dog.airTemp;
+		 
+		dogList=new ArrayList<Dog>();
+		dogMap=new HashMap<String, Dog>();
+		
+		simpleDog = new Dog("Fido", 10.0,4);
+		simpleDog2=new Dog("Fido", "9.4");
+		simpleCollie=new Collie("Tramp", 12.0,4);
+		
+	}
+
+	private void run(){
+		
+		System.out.println("My simple dof:" +simpleDog.getName());
+		simpleDog.bark();
+		System.out.println("Simple dog ID is:" +simpleDog.getId());
+		System.out.println("My simple Collie:"+simpleCollie.getName());
+		simpleCollie.bark();
+		simpleCollie.wagTail();
+		System.out.println("Simple Collie ID is:" +simpleCollie.getId());
+		//add to the list
+		dogList.add(simpleDog);
+		dogList.add(simpleDog2);
+		dogList.add(simpleCollie);
+		
+		dogMap.put(simpleDog.getName(),simpleDog);
+		dogMap.put(simpleDog2.getName(),simpleDog2);
+		dogMap.put(simpleCollie.getName(),simpleCollie);
+		
+		for(Dog dg : dogList) {
+			System.out.println("Before: "+dg);
+			}
+		
+		dogList.remove(1);
+		for(Dog dg : dogList) {
+			System.out.println("After: "+dg);
+			}
+		
+		
+		for(Dog dg: dogMap.values()) {
+			System.out.println("Map: "+dg);
+		}
+		
+		Dog bulletDog = dogMap.get("Bullet");
+		System.out.println("My dog is"+bulletDog);
+		}
+	
+	public static void main(String[] args) {
+		DogTest dt=new DogTest();
+		dt.run();
+		
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Convert local variable &apos;java_6200.Plant.BaseStem().base&apos; in &apos;java_6200.Plant.BaseStem()&apos; to field&#x0A;- Original project: &apos;java_6200&apos;&#x0A;- Original element: &apos;java_6200.Plant.BaseStem().base&apos;&#x0A;- Field name: &apos;base&apos;&#x0A;- Initialize field in method&#x0A;- Declared visibility: &apos;private&apos;" description="Convert local variable &apos;base&apos; to field" final="false" flags="2" id="org.eclipse.jdt.ui.promote.temp" initialize="1" input="/src&lt;java_6200{Plant.java" name="base" selection="521 4" stamp="1539027191241" static="false" version="1.0" visibility="2"/>
+</session>

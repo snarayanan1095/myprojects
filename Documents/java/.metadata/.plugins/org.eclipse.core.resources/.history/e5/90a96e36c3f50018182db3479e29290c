@@ -1,0 +1,69 @@
+package bGApp;
+
+/**
+ * @author shwethanarayanan
+ * NUID: (001422526)
+ *
+ */
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Observable;
+
+import java_6200.obs.EventPublisher;
+import java_6200.obs.EventSubscriber;
+
+
+public class BGGenerationSet extends Observable{
+	MyPlant p1=new MyPlant("Rose", 001, 0, 0.0,0.0,0.0,45);
+	//MyPlant p2= new MyPlant("Hibiscus", 002,0, 0.0,0.0,0.0,30);
+	MyStem stem=new MyStem();
+	ArrayList<MyPlant> PlantList;
+	HashMap<Integer,MyPlant>PlantMap=new HashMap<Integer, MyPlant>();
+	
+	public BGGenerationSet() {
+		
+		PlantList = new ArrayList<MyPlant>();
+		PlantMap=new HashMap<Integer, MyPlant>();
+		
+		
+	}
+	
+	
+
+	public void run() {
+		MyPlant rose=new MyPlant();
+		rose=p1.plant_gen(p1);
+		p1.stem_growth();
+		PlantList.add(rose);
+		PlantMap.put(p1.SpecimenId, p1);
+//		MyPlant hibiscus=new MyPlant();
+//		hibiscus=p2.plant_gen(p2);
+//		p2.stem_growth();
+//		PlantList.add(hibiscus);
+//		PlantMap.put(p2.SpecimenId, p2);
+		//stem.StemLoop();
+		//stem.ChildCount();
+		//stem.basestem_check();
+
+	}
+	
+//	public void BGGenerationSet2() {
+//		MyPlant hibiscus=new MyPlant();
+//		hibiscus=p2.plant_gen(p2);
+//		p2.stem_growth();
+//		PlantList.add(hibiscus);
+//		PlantMap.put(p2.SpecimenId, p2);
+//		//stem.StemLoop();
+//		//stem.ChildCount();
+//		//p2.basestem_check();
+//		
+//	}
+	
+
+	
+	
+	
+
+}

@@ -1,0 +1,51 @@
+package algo_hw5;
+
+public class Record {
+	
+
+   	private int key;
+  	 private Node leftNode;
+  	 private Node rightNode;
+
+	 public Record(int key, Node leftNode, Node rightNode) {
+	       this.key = key;
+       	       this.leftNode = leftNode;
+      	       this.rightNode = rightNode;
+  	 }
+  
+	 public Record(int key){
+      	       this.key = key;
+	 }
+
+	 public int getKey() {
+       		return key;
+	}
+
+	public Node getLeftNode() {
+       		return leftNode;
+	}
+
+	public Node getRightNode() {
+       		return rightNode;
+	}
+
+	 public void setKey(int key) {
+       		this.key = key;
+	}
+
+	public void setLeftNode(Node leftNode) {
+       		this.leftNode = leftNode;
+	}
+
+	public void setRightNode(Node rightNode) {
+       		this.rightNode = rightNode;
+	}
+}
+
+
+	public static void main(String[] args) {
+	
+
+	}
+
+}

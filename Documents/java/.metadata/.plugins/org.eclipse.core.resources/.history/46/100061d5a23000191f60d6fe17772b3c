@@ -1,0 +1,93 @@
+package algo_hw5;
+
+public class Binary_tree2 {
+	
+	class Node{
+		int data;
+		Node left;
+		Node right;	
+		public Node(int data){
+			this.data = data;
+			left = null;
+			right = null;
+		}
+	}
+	
+	Node root;
+	Binary_tree2() {
+		this.root=null;
+	}
+	
+	public boolean search(int id) {
+		Node current = root;
+		while(current!=null){
+			if(current.data==id){
+				return true;
+			}else if(current.data>id){
+				current = current.left;
+			}else{
+				current = current.right;
+			}
+		}
+		return false;
+	}
+	
+	public void insert(int id) {
+		Node newNode = new Node(id);
+		if(root==null){
+			root = newNode;
+			return;
+		}
+		Node current = root;
+		Node parent = null;
+		while(true){
+			parent = current;
+			if(id<current.data){				
+				current = current.left;
+				if(current==null){
+					parent.left = newNode;
+					return;
+				}
+			}else{
+				current = current.right;
+				if(current==null){
+					parent.right = newNode;
+					return;
+				}
+			}
+		}
+	}
+		
+	
+	
+
+
+
+	
+
+
+	public static void main(String[] args) {
+		
+		Node root=new Node(3);
+		root.insert(7);
+		root.insert(9);
+		root.insert(23);
+		root.insert(45);
+		root.insert(1);
+		root.insert(5);
+		root.insert(14);
+		root.insert(55);
+		root.insert(24);
+		root.insert(13);
+		root.insert(11);
+		root.insert(8);
+		root.insert(19);
+		root.insert(4);
+		root.insert(31);
+		root.insert(35);
+		root.insert(56);
+		root.search(11);
+		
+	}
+
+}

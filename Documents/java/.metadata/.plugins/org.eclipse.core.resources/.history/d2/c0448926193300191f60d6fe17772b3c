@@ -1,0 +1,91 @@
+package algo_hw5;
+
+import algo_hw5.Binary_tree2.Node;
+
+
+public class Record {
+	
+
+   	private static int key;
+  	 private Node leftNode;
+  	 private Node rightNode;
+  	 private Node root;
+
+  	Node newNode;
+	 public Record(int key, Node leftNode, Node rightNode) {
+		 	   this.key = key;
+       	       this.leftNode = leftNode;
+      	       this.rightNode = rightNode;
+  	 }
+	 
+	 public void bstinsert(int id) {
+		
+			if(root==null){
+				root = newNode;
+				return;
+			}
+			Node current = root;
+			Node parent = null;
+			while(true){
+				parent = current;
+				if(id<current.data){				
+					current = current.left;
+					if(current==null){
+						parent.left = newNode;
+						return;
+					}
+				}else{
+					current = current.right;
+					if(current==null){
+						parent.right = newNode;
+						return;
+					}
+				}
+			}
+		}
+	 
+  
+	 public Record(int key){
+      	       this.key = key;
+	 }
+
+	 public int getKey() {
+       		return key;
+	}
+
+	public Node getLeftNode() {
+       		return leftNode;
+	}
+
+	public Node getRightNode() {
+       		return rightNode;
+	}
+
+	 public void setKey(int key) {
+       		this.key = key;
+	}
+
+	public void setLeftNode(Node leftNode) {
+       		this.leftNode = leftNode;
+	}
+
+	public void setRightNode(Node rightNode) {
+       		this.rightNode = rightNode;
+	}
+
+
+
+	public static void main(String[] args) {
+	Record rec=new Record(key);
+	TwoThreeTree<Integer> tt = new TwoThreeTree<Integer>();
+	
+	rec.bstinsert(3);					
+	tt.add(3);
+	
+	
+	
+	
+
+	}
+
+}

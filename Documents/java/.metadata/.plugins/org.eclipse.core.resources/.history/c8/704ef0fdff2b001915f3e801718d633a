@@ -1,0 +1,93 @@
+package algo_hw4;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
+import javax.imageio.ImageIO;
+
+import com.sun.prism.Image;
+
+
+public class PixelSort {
+	
+	Object[] intarr;
+	Object[] outarr;
+	double intensity;
+	int i,j;
+	int k=0;
+	Stack<Double> intstack = new Stack<Double>();
+	
+	
+	  private void marchThroughImage() {
+		File f=new File("/Users/shwethanarayanan/Documents/algo/homework4/Boston.jpeg");
+	    BufferedImage image = null;
+		try {
+			image = ImageIO.read(f);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	    int w = image.getWidth();
+	    int h = image.getHeight();
+
+	    for (i = 0; i < h; i++) {
+	      for (j = 0; j < w; j++) {
+	    	
+	       
+	        int pixel = image.getRGB(j, i);
+	  	    int red = (pixel >> 16) & 0xff;
+	
+	  	    int green = (pixel >> 8) & 0xff;
+	  	    int blue = (pixel) & 0xff;
+
+	  	    intensity=(0.2989*red) + (0.5870*green) + (0.1140*blue);
+
+	  	    intstack.push(intensity);
+	  	    }
+	      }
+	  }
+	  
+	  public void insertionSort() {
+		 outarr =  arraystack();
+		
+		  int n = outarr.length; 
+		  
+	        for (int i=0; i<n; ++i) 
+	        { 
+	            double key = (double) outarr[i]; 
+	            int j = i-1; 
+
+	            while (j>0 && ((double) outarr[j-1]) < key) 
+	            { 
+	                outarr[j+1] = outarr[j]; 
+	                j = j-1; 
+	            } 
+	            outarr[j+1] = key; 
+	        } 
+		 }
+	  
+	  public Object[] arraystack(){
+		  intarr= intstack.toArray();
+		  System.out.println(intarr);
+		  return intarr;
+		 }
+	  
+	  public void printArray() {
+		  int n =outarr.length;
+		
+		  for(int m=0;m<n;m++) {
+			  System.out.println(outarr[m]+" ");
+		  }
+	  }
+	  
+
+	  	public static void main(String args[]) {
+			PixelSort ps=new PixelSort();
+			ps.marchThroughImage();
+			ps.arraystack();
+			ps.insertionSort();
+			ps.printArray();
+			
+			
+		  }
+		}
+

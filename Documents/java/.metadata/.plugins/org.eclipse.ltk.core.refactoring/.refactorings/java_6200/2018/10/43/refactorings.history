@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;java_6200.inherit.AltPowerMeter&apos; to &apos;AltPowerMeasure&apos;&#x0A;- Original project: &apos;java_6200&apos;&#x0A;- Original element: &apos;java_6200.inherit.AltPowerMeter&apos;&#x0A;- Renamed element: &apos;java_6200.inherit.AltPowerMeasure&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;AltPowerMeter&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;java_6200.inherit{AltPowerMeter.java[AltPowerMeter" matchStrategy="1" name="AltPowerMeasure" qualified="false" references="true" similarDeclarations="false" stamp="1540249108680" textual="false" version="1.0"/>
+</session>

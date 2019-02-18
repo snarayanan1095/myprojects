@@ -1,0 +1,64 @@
+package java_6200;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Cheditest {
+
+	private Plant p1;
+	private Plant p2;
+	private Plant p3;
+	private Plant p4;
+	private Plant p5;
+	
+	
+	private void run() {
+		
+		p1.growPlant(0.0,0);
+		System.out.println("The plant age is "+p1.PlantAge+" weeks");
+		System.out.println("The length of the plant is "+p1.PlantLength);
+		
+		
+		p2.growPlant(p1.PlantLength,p1.PlantAge);
+		System.out.println("The plant age is "+p2.PlantAge+" weeks");
+		System.out.println("The length of the plant is "+p2.PlantLength);
+		
+		
+		p3.growPlant(p2.PlantLength,p2.PlantAge);
+		System.out.println("The plant age is "+p3.PlantAge +" weeks");
+		System.out.println("The length of the plant is "+p3.PlantLength);
+		
+		
+		p4.growPlant(p3.PlantLength,p3.PlantAge);
+		System.out.println("The plant age is "+p4.PlantAge+" weeks");
+		System.out.println("The length of the plant is "+p4.PlantLength);
+		
+		
+		p5.growPlant(p4.PlantLength,p4.PlantAge);
+		System.out.println("The plant age is "+p5.PlantAge+" weeks");
+		System.out.println("The length of the plant is "+p5.PlantLength);
+		
+		Plant a1=new Plant(p1.TypeName,p1.SpecimenId,p1.PlantAge,p1.PlantLength);
+		System.out.println("Plant Details: "+ a1.formattedToString());
+		
+		Plant a2=new Plant(p2.TypeName,p2.SpecimenId,p2.PlantAge,p2.PlantLength);
+		System.out.println("Plant Details: "+ a2.formattedToString());
+		
+		Plant a3=new Plant(p3.TypeName,p3.SpecimenId,p3.PlantAge,p3.PlantLength);
+		System.out.println("Plant Details: "+ a3.formattedToString());
+		
+		Plant a4=new Plant(p4.TypeName,p4.SpecimenId,p4.PlantAge,p4.PlantLength);
+		System.out.println("Plant Details: "+ a4.formattedToString());
+		
+		Plant a5=new Plant(p5.TypeName,p5
+				.SpecimenId,p5.PlantAge,p5.PlantLength);
+		System.out.println("Plant Details: "+ a5.formattedToString());
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		Cheditest ct=new Cheditest();
+		ct.run();
+	}
+}

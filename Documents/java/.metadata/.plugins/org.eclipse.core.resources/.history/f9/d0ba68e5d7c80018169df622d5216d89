@@ -1,0 +1,45 @@
+/**
+ * 
+ */
+package java_6200;
+
+/**
+ * @author shwethanarayanan
+ * NUID: (001422526)
+ *
+ */
+public class Plant {
+	String TypeName;
+	String SpecimenId;
+	int PlantAge;
+	double PlantLength;
+	
+	public Plant(){
+		String Typename="Rose Plant";
+		SpecimenId="001";
+		PlantAge=0;
+		PlantLength=0.0;
+	}
+	
+	public Plant(String TypeName, String SpecimenId, int PlantAge, double PlantLength){
+		SpecimenId="001";
+		growPlant(PlantLength,PlantAge);
+		this.PlantLength=PlantLength;
+		this.PlantAge=PlantAge;
+		
+		
+	}
+	
+	public void growPlant(double PlantLength, int PlantAge){
+		PlantAge=PlantAge+1;
+		PlantLength=PlantLength+0.2;
+		this.PlantLength=PlantLength;
+		this.PlantAge=PlantAge;
+	}
+	public String formattedToString(){
+		String TypeName="Rose Plant";
+		String MyPlant=String.format("The plant is a %1$10s with Specimen ID %2$s of age %3$01d weeks and the length of the plant is %4$5.2f meters",TypeName, SpecimenId, PlantAge, PlantLength);
+		return MyPlant;
+	}
+	
+}

@@ -1,0 +1,39 @@
+/**
+ * 
+ */
+package java_6200;
+
+/**
+ * @author shwethanarayanan
+ * NUID: (001422526)
+ *
+ */
+public class Plant {
+	String TypeName;
+	int SpecimenId;
+	int PlantAge;
+	double PlantLength;
+	
+	public Plant(){
+		String Typename="Mangotree";
+		SpecimenId=123;
+		PlantAge=0;
+		PlantLength=0.0;
+	}
+	
+	public Plant(String TypeName, int SpecimenId, int PlantAge, double PlantLength){
+		growPlant(PlantLength,PlantAge);
+		this.PlantLength=PlantLength;
+		this.PlantAge=PlantAge;
+		
+	}
+	
+	public void growPlant(double PlantLength, int PlantAge){
+		PlantAge=PlantAge+1;
+		PlantLength=PlantLength+0.2;
+		this.PlantLength=PlantLength;
+		this.PlantAge=PlantAge;
+	}
+	
+	
+}
