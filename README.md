@@ -1,3 +1,3 @@
 # My Projects
 
-This repository contains the assignments and projects of my scala/spark and java class
+This repository contains my practice, assignments and projects of my scala, spark, python and java class
