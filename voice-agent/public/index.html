@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Voice Coder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- Header -->
+    <header>
+      <div class="header-inner">
+        <span class="logo">&#9670; Voice Coder</span>
+        <div class="header-controls">
+          <button id="tts-toggle" class="icon-btn" title="Toggle text-to-speech" aria-label="Toggle text-to-speech">
+            <span id="tts-icon">&#128264;</span>
+          </button>
+          <button id="clear-btn" class="icon-btn" title="Clear conversation" aria-label="Clear conversation">
+            &#128465;
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Chat area -->
+    <main id="chat-container">
+      <div id="messages">
+        <div class="message assistant">
+          <div class="bubble">
+            <p>Hold the mic button and speak your coding request. I'll respond here.</p>
+            <p class="hint">Try: <em>"Explain what the auth module does"</em> or <em>"Refactor the login function to use async/await"</em></p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Transcript preview (shown while recording) -->
+    <div id="transcript-bar" class="hidden">
+      <span id="transcript-text">Listening…</span>
+    </div>
+
+    <!-- Bottom toolbar -->
+    <footer>
+      <div class="footer-inner">
+        <!-- Abort streaming button (hidden until streaming) -->
+        <button id="abort-btn" class="abort-btn hidden" aria-label="Stop response">
+          &#9632; Stop
+        </button>
+
+        <!-- Hold-to-talk mic button -->
+        <button
+          id="mic-btn"
+          class="mic-btn"
+          aria-label="Hold to talk"
+          aria-pressed="false"
+        >
+          <svg id="mic-icon" viewBox="0 0 24 24" fill="currentColor" width="32" height="32" aria-hidden="true">
+            <path d="M12 1a4 4 0 0 1 4 4v6a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v6a2 2 0 0 0 4 0V5a2 2 0 0 0-2-2zm7 8a1 1 0 0 1 1 1 8 8 0 0 1-7 7.94V22h3a1 1 0 0 1 0 2H8a1 1 0 0 1 0-2h3v-2.06A8 8 0 0 1 4 12a1 1 0 0 1 2 0 6 6 0 0 0 12 0 1 1 0 0 1 1-1z"/>
+          </svg>
+          <span class="mic-label">Hold to Talk</span>
+        </button>
+
+        <!-- Token usage indicator -->
+        <div id="token-info" class="token-info" aria-live="polite"></div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Error toast -->
+  <div id="toast" class="toast hidden" role="alert" aria-live="assertive"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
